@@ -19,8 +19,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-
-  late Gender selectedGender;
+// Dart Ternary Operator have been used
+   Gender? selectedGender;
 
   // Color maleCardColour = inactiveCardColor;
   // Color femaleCardColour = inactiveCardColor;
@@ -58,41 +58,42 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedGender = Gender.male;
-                      });
-                    },
                     child: ReusableCard(
+                      onPress: () {
+                        setState(() {
+                          selectedGender = Gender.male;
+                        });
+                      },
                       colour: selectedGender == Gender.male ? activeCardColor : inactiveCardColor,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
                       ),
                     ),
-                  ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedGender = Gender.female;
-                      });
-                    },
                     child: ReusableCard(
+                      onPress: () {
+                        setState(() {
+                          selectedGender = Gender.female;
+                        });
+                      },
                       colour: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
                       ),
                     ),
-                  ),
                 ),
               ],
             )),
             Expanded(
               child: ReusableCard(
+                onPress: () {
+                  setState(() {
+                    selectedGender = Gender.female;
+                  });
+                },
                 colour: activeCardColor,
                 cardChild: IconContent(
                   icon: FontAwesomeIcons.mars,
@@ -105,6 +106,11 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                     colour: activeCardColor,
                     cardChild: IconContent(
                       icon: FontAwesomeIcons.mars,
@@ -114,6 +120,11 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                     colour: activeCardColor,
                     cardChild: IconContent(
                       icon: FontAwesomeIcons.mars,
